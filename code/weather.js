@@ -189,7 +189,7 @@ const clearAll = () => {
 
 const quoteOfTheDay = () => {
 
-  fetch("http://quotes.rest/qod.json?category=inspire")
+  fetch("https://quotes.rest/qod.json?category=inspire")
     .then((response) => {
       return response.json()
     })
