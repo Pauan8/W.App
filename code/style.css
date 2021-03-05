@@ -13,7 +13,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 50px;
 }
 
 /* Styling of the body when the classname is "sunny" */
@@ -60,7 +62,7 @@ body {
 }
 
 .navbar-container p {
-  font-size: 12;
+  font-size: 14px;
   display: inline-block;
 }
 
@@ -72,24 +74,23 @@ body {
 .navbar-inner {
   display: flex;
   align-items: center;
+  margin: 5px 20px;
 }
 
-.navbar-map-icon,
-.navbar-magnifyingglass-icon {
-  width: 40px;
-  height: 40px;
+.navbar-icon {
+  width: 30px;
+  height: 30px;
   cursor: pointer;
-  padding-right: 10px;
-  padding: 5px 0;
+  margin: 5px;
   opacity: 0.7;
+  position: relative;
 }
 
-.navbar-map-icon {
-  padding-right: 10px;
-}
-
-.navbar-magnifyingglass-icon {
-  padding-left: 10px;
+.navbar-icon img {
+  width: 100%;
+  max-height: 100%;
+  position: absolute;
+  object-fit: cover;
 }
 
 .navbar-magnifyingglass-icon:hover,
@@ -102,12 +103,15 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  position: relative;
 }
 
 .search-location-inner {
   display: flex;
   height: 30px;
   width: 60%;
+  position: absolute;
+  z-index: 1;
 }
 
 .search-bar {
@@ -119,6 +123,7 @@ body {
   font-size: 16px;
   outline: none;
   border: solid rgba(0, 0, 0, 0.596) 0.5px;
+  border-radius: 10px 0 0 10px;
 }
 
 .sunny input,
@@ -148,58 +153,50 @@ body {
 
 .search-location-btn {
   display: inline-block;
+  border-radius: 0 10px 10px 0;
   text-align: center;
   vertical-align: middle;
   padding: 3px 16px;
-  border-radius: 0px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#44c6ff), to(#2a7aaf));
-  background: -moz-linear-gradient(top, #44c6ff, #2a7aaf);
-  background: linear-gradient(to bottom, #44c6ff, #2a7aaf);
-  text-shadow: #1a4c6e 1px 1px 1px;
+  background-color: rgba(255, 255, 255, 0.123);
   font: normal normal bold 15px arial;
   color: #ffffff;
   text-decoration: none;
-}
-
-.search-location-btn:hover {
-  border: 1px solid #3498db;
-  background: #52eeff;
-  background: -webkit-gradient(linear, left top, left bottom, from(#52eeff), to(#3292d2));
-  background: -moz-linear-gradient(top, #52eeff, #3292d2);
-  background: linear-gradient(to bottom, #52eeff, #3292d2);
-  color: #ffffff;
-  text-decoration: none;
+  border: solid 0.5px rgba(15, 15, 15, 0.39);
 }
 
 .sunny button {
-  background: -webkit-gradient(linear, left top, left bottom, from(#0bc28b), to(#064d37));
-  background: -moz-linear-gradient(top, #0bc28b, #064d37);
-  background: linear-gradient(to bottom, #0bc28b, #064d37);
+  background: -webkit-gradient(linear, left top, left bottom, from(#0bc28b7e), to(#064d3777));
+  background: -moz-linear-gradient(top, #0bc28b7e, #064d3777);
+  background: linear-gradient(to bottom, #0bc28b7e, #064d3777);
 }
 
 .cloudy button {
   background-color: #182844;
-  background: -webkit-gradient(linear, left top, left bottom, from(#9dada7), to(#384f5c));
-  background: -moz-linear-gradient(top, #9dada7, #384f5c);
-  background: linear-gradient(to bottom, #9dada7, #384f5c);
+  background: -webkit-gradient(linear, left top, left bottom, from(#9dada763), #384f5c6b);
+  background: -moz-linear-gradient(top, #9dada763, #384f5c6b);
+  background: linear-gradient(to bottom, #9dada763, #384f5c6b);
 }
 
 .rainy button {
-  background: -webkit-gradient(linear, left top, left bottom, from(#5fa8c7), to(#325166));
-  background: -moz-linear-gradient(top, #5fa8c7, #325166);
-  background: linear-gradient(to bottom, #5fa8c7, #325166);
+  background: -webkit-gradient(linear, left top, left bottom, from(#5fa8c771), to(#32516662));
+  background: -moz-linear-gradient(top, #5fa8c771, #32516662);
+  background: linear-gradient(to bottom, #5fa8c771, #32516662);
 }
 
 .snowy button {
-  background: -webkit-gradient(linear, left top, left bottom, from(#b9d6e2), to(#779299));
-  background: -moz-linear-gradient(top, #b9d6e2, #779299);
-  background: linear-gradient(to bottom, #b9d6e2, #779299);
+  background: -webkit-gradient(linear, left top, left bottom, from(#b9d6e271), to(#7792996e));
+  background: -moz-linear-gradient(top, #b9d6e271, #7792996e);
+  background: linear-gradient(to bottom, #b9d6e271, #7792996e);
 }
 
 .stormy button {
-  background: -webkit-gradient(linear, left top, left bottom, from(#4d6068), to(#1b1d27));
-  background: -moz-linear-gradient(top, #4d6068, #1b1d27);
-  background: linear-gradient(to bottom, #4d6068, #1b1d27);
+  background: -webkit-gradient(linear, left top, left bottom, from(#4d606888), to(#1b1d2788));
+  background: -moz-linear-gradient(top, #4d606888, #1b1d2788);
+  background: linear-gradient(to bottom, #4d606888, #1b1d2788);
+}
+
+.other button {
+  color: grey;
 }
 
 .today {
@@ -360,6 +357,7 @@ body {
 .today-location-wrapper {
   display: flex;
   align-items: center;
+  padding-top: 20px;
 }
 
 /* Styling of the div with info about temperature,
@@ -374,29 +372,13 @@ sunrise and sunset numbers */
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
   margin: 2px;
   display: inline;
 }
 
-/* Styling of the icon and description */
-.todays-description {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.quote-of-the-day {
-  text-align: center;
-  font-weight: 500;
-  padding: 25px 10px;
-}
-
-.quote-of-the-day-author {
-  font-weight: 500;
-  font-style: italic;
+h2 {
+  font-size: 20px;
 }
 
 .today-surise-sunset {
@@ -458,32 +440,53 @@ p {
   width: 30px;
 }
 
+/* Styling of the icon and description */
+.todays-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.quote-of-the-day {
+  font-weight: 500;
+  max-width: 800px;
+  margin: 10px;
+  text-align: center;
+}
+
+.quote-of-the-day-author {
+  font-weight: 500;
+  font-style: italic;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.705);
+  height: 50px;
+  width: 100%;
+  border-top: solid rgba(0, 0, 0, 0.342) 0.5px;
+  background-color:rgba(0, 0, 0, 0.377);
+  position: absolute;
+  bottom: 0;
+}
+
+.footer p {
+  font-size: 12px;
+}
+
 /* Styling of how it should look in tablet and desktop */
 @media (min-width: 668px) {
-  .todays-numbers p {
-    font-size: 18px;
+
+  h2 {
+    font-size: 25px;
   }
 
-  .todays-description img {
-    width: 150px;
-  }
-
-  .todays-description h2 {
-    font-size: 38px;
-    max-width: 500px;
-  }
-
-  .forecast {
-    max-width: 500px;
-  }
-
-  footer {
-    width: 100%;
-    max-width: 500px;
-  }
-
-  .search-location-inner {
-    width: 25%;
+  p {
+    font-size: 20px;
   }
 
   /* styling of the today section when the class is  "sunny" */
@@ -531,6 +534,36 @@ p {
     background-image: url("./assets/other1920px.jpg");
     background-position: center;
     background-size: cover;
+  }
+
+  .todays-description img {
+    width: 150px;
+  }
+
+  .forecast {
+    max-width: 500px;
+  }
+
+  .forecast-container {
+    width: 250px;
+  }
+
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .search-location-inner {
+    width: 25%;
+  }
+
+  .footer {
+    justify-content: flex-start;
+  }
+
+  .footer p {
+    font-size: 14px;
+    margin-left: 20px;
   }
 }
 
